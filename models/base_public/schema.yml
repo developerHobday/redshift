@@ -1,0 +1,105 @@
+version: 2
+
+sources:
+    - name: public
+      tables:
+        - name: category
+        - name: date
+        - name: event
+        - name: listing
+        - name: sales
+        - name: users
+        - name: venue
+
+models:
+    - name: base_public_category
+      description: "copy of source, shouldn't it be based on snapshot?"
+      columns:
+        - name: catid
+          tests:
+            - unique
+            - not_null
+        - name: catgroup
+          tests:
+            - not_null
+        - name: catname
+          tests:
+            - not_null
+        - name: catdesc
+          tests:
+            - not_null
+
+    - name: base_public_date
+      description: "copy of source, shouldn't it be based on snapshot?"
+      columns:
+        - name: dateid
+          tests:
+            - unique
+            - not_null
+        - name: caldate
+          description: YYYY-MM-DD
+          tests:
+            - not_null
+        - name: day
+          tests:
+            - not_null
+        - name: week
+          tests:
+            - not_null
+        - name: month
+          description: MMM
+          tests:
+            - not_null
+        - name: qtr
+          tests:
+            - not_null
+        - name: year
+          tests:
+            - not_null        
+    
+    - name: base_public_event
+      description: events
+      columns:
+        - name: eventid
+          tests:
+            - unique
+            - not_null
+        - name: venueid
+          tests:
+            - not_null
+        - name: catid
+          tests:
+            - not_null
+        - name: eventname
+        - name: dateid
+    - name: base_public_sales
+      columns:
+        - name: salesid
+        - name: pricepaid
+        - name: qtysold
+        - name: eventid
+        - name: commission
+        - name: sellerid
+    - name: base_public_user
+      columns:
+        - name: userid
+        - name: username
+        - name: firstname
+        - name: lastname
+        - name: city
+        - name: state
+        - name: email
+        - name: phone 
+        - name: likesports
+        - name: liketheatre
+        - name: likeconcerts
+        - name: likejazz
+        - name: likeclassical
+        - name: likeopera
+        - name: likerock
+        - name: likevegas
+        - name: likebroadway
+        - name: likemusicals
+
+
+        

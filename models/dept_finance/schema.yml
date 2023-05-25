@@ -1,0 +1,25 @@
+version: 2
+
+models:
+    - name: rpt_finance_qtr_total_sales_by_event
+      description: report 
+      columns: 
+        - name: year
+        - name: qtr 
+        - name: event 
+        - name: sales 
+        - name: revenue 
+        - name: comm 
+        - name: pct_comm
+        
+    - name: rpt_finance_qtr_top_events_by_sales
+      description: 'report'
+      columns:
+        - name: year
+        - name: qtr
+        - name: rank
+        - name: event
+        - name: sales
+        - name: revenue 
+        - name: pct_comm 
+        
